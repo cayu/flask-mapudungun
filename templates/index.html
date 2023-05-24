@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>{{t}}</title>
+		<!-- href="/static/assets/style.css"-->
+		<link rel="stylesheet" type="text/css"  href="{{ url_for('static',filename='assets/style.css')}}" >
+		<link rel="stylesheet" type="text/css"  href="{{ url_for('static',filename='assets/emoji.css')}}" >
+		<script src="{{ url_for('static',filename='assets/twemoji.min.js')}}"></script>  
+		<script src="{{ url_for('static',filename='assets/emoji.js')}}"></script>
+	</head>
+<body>
+	<table>
+	    <tr id="row">
+	    	<th class="id">Status</th>
+	    	<th class="mapudungun">Task Name</th>
+	    	<th class="castellano">Description Name</th>
+	    	<th class="gramatica">Date</th>
+	    </tr>
+	{% for palabra in palabras %}
+		<tr class="datas">
+			<td class="name">{{ palabra["mapudungun"] }}</td>
+			<td class="desc">{{ palabra["castellano"] }}</td>
+			<td class="date">{{ palabra["gramatica"] }}</td>
+		</tr>
+	{% endfor %}
+	</table>
+</body>
+</html>
